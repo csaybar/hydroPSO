@@ -1967,11 +1967,7 @@ hydroPSO <- function(
          ( (R.version$os=="mingw32") | (R.version$os=="mingw64") ) )
          stop("[ Fork clusters are not supported on Windows =>  'parallel' can not be set to '", parallel, "' ]")
     
-      ifelse(parallel=="parallelWin", parallel.pkg <- "parallel",  parallel.pkg <- parallel)                
-      if ( is.na( match(parallel.pkg, installed.packages()[,"Package"] ) ) ) {
-              warning("[ Package '", parallel.pkg, "' is not installed =>  parallel='none' ]")
-              parallel <- "none"
-      }  else { 
+      else { 
       
            if (verbose) message("                               ")
            if (verbose) message("[ Parallel initialization ... ]")
